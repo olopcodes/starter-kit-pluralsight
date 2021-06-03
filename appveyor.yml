@@ -1,0 +1,23 @@
+#test against this version of node
+environment:
+  matix:
+    # node.js
+    - nodejs_version: '14'
+
+# install scripts (runs after repo cloning)
+install:
+  # get latest stable version of node or io.js
+  -ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
+#post-install test scripts
+test_scripts:
+  #output useful info about debugging
+  - node --version
+  -npm --version
+  # run tests
+  - npm test
+
+# do not actually build
+build: off

@@ -1,13 +1,13 @@
 #test against this version of node
 environment:
-  matix:
+  matrix:
     # node.js
-    - nodejs_version: '14'
+    - nodejs_version: "14"
 
 # install scripts (runs after repo cloning)
 install:
   # get latest stable version of node or io.js
-  -ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install
 
@@ -15,7 +15,7 @@ install:
 test_scripts:
   #output useful info about debugging
   - node --version
-  -npm --version
+  - npm --version
   # run tests
   - npm test
 
